@@ -8,7 +8,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 // Where SPEC-NAMING.md is mirrored with the Agent Messaging specification.
-export const SPEC_REPO_URL = "https://github.com/jeffrschneider/agent-messaging";
+export const SPEC_REPO_URL = "https://github.com/agent-messaging/agent-messaging";
 
 const chev = `<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 

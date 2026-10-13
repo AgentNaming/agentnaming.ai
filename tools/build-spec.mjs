@@ -14,7 +14,7 @@ import { rail, footer, SPEC_REPO_URL } from "./chrome.mjs";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const REPO = resolve(ROOT, "..", "AgentMesh");
 const SRC = process.argv[2] ?? resolve(REPO, "SPEC-NAMING.md");
-const RAW_URL = "https://raw.githubusercontent.com/jeffrschneider/agent-messaging/main/SPEC-NAMING.md";
+const RAW_URL = "https://raw.githubusercontent.com/agent-messaging/agent-messaging/main/SPEC-NAMING.md";
 
 let md, commit = "";
 try {
