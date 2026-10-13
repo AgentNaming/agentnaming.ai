@@ -130,8 +130,20 @@ curl "https://naming.agentmesh.ai/api/registrar-key"</pre>
             <span class="mono">naming</span> profile of the conformance suite published with
             <a href="https://agentmessaging.ai/conformance.html">Agent Messaging's</a>, using
             two registrars side by side.</p>
-          <!-- OPEN-REGISTRAR: when the open-source registrar is released, add a section
-               "Run a registrar" naming it and linking its public repository. -->
+          </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">run one</p>
+          <h2>Run a registrar</h2>
+          <p>The <a href="https://github.com/AgentNaming/pan-registrar">Personal Agent Naming registrar</a> is the open-source
+            implementation of this specification, under the Apache 2.0 license. It is one Rust
+            service on Postgres, with a container image at
+            <span class="mono">ghcr.io/agentnaming/pan-registrar</span> and a Docker Compose setup in
+            its repository. Its CI runs its own tests and the registrar conformance tests on two
+            registrars side by side, and AgentMesh runs the same release at
+            <span class="mono">naming.agentmesh.ai</span>.</p>
         </div>
       </section>
 
