@@ -1,6 +1,7 @@
 # agentnaming.ai
 
-Source for https://agentnaming.ai, the site of **Personal Agent Naming (PAN)**,
+Source for https://agentnaming.ai (repository https://github.com/AgentNaming/agentnaming.ai),
+the site of **Personal Agent Naming (PAN)**,
 an open standard for naming personal agents. Keep the name: "Personal Agent
 Naming", short name "PAN" (owner, 2026-10-13). Never rename it "Agent Naming"
 and never say it was formerly called anything else.
@@ -12,7 +13,8 @@ and never say it was formerly called anything else.
   AgentMesh: AgentMesh appears as the sponsor and as one registrar, on the "Get
   a name" page.
 - **Registrars are listed on `get-a-name.html`**, AgentMesh first. An
-  open-source registrar is being released (owner, 2026-10-13). Until it is,
+  open-source registrar is being released (owner, 2026-10-13), at
+  https://github.com/AgentNaming/personal-agent-naming once it is public. Until it is,
   the site says AgentMesh runs a registrar and links no registrar repository.
   The places to fill in are marked `<!-- OPEN-REGISTRAR: ... -->` in
   `index.html`, `get-a-name.html`, `implementers.html` and, in the AgentMesh

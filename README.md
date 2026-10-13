@@ -1,6 +1,7 @@
 # agentnaming.ai
 
-Source for https://agentnaming.ai, the site of Personal Agent Naming (PAN), an
+Source for https://agentnaming.ai (this repository: https://github.com/AgentNaming/agentnaming.ai),
+the site of Personal Agent Naming (PAN), an
 open standard for naming personal agents, sponsored by AgentMesh.
 
 The specification itself is `SPEC-NAMING.md` in the AgentMesh repository, mirrored
