@@ -14,7 +14,7 @@ and never say it was formerly called anything else.
   a name" page.
 - **Registrars are listed on `get-a-name.html`**, AgentMesh first. An
   open-source registrar is being released (owner, 2026-10-13), at
-  https://github.com/AgentNaming/personal-agent-naming once it is public. Until it is,
+  https://github.com/AgentNaming/pan-registrar once it is public. Until it is,
   the site says AgentMesh runs a registrar and links no registrar repository.
   The places to fill in are marked `<!-- OPEN-REGISTRAR: ... -->` in
   `index.html`, `get-a-name.html`, `implementers.html` and, in the AgentMesh
@@ -28,9 +28,13 @@ and never say it was formerly called anything else.
 
 ## spec.html is generated, never hand-edited
 
-`spec.html` is rendered from the canonical `SPEC-NAMING.md` in the AgentMesh
-repository by `tools/build-spec.mjs`. To change the spec, edit SPEC-NAMING.md
-there, then regenerate here:
+`spec.html` is rendered from `SPEC-NAMING.md` by `tools/build-spec.mjs`. The
+specification is published as https://agentnaming.ai/spec.html, and its public
+source repository is https://github.com/AgentNaming/personal-agent-naming. Link
+those two for the naming spec, never the Agent Messaging repositories. The
+builder reads SPEC-NAMING.md from a sibling checkout of the AgentMesh
+repository by default, or from the path you give it. Edit the spec where it is
+maintained, then regenerate here:
 
 ```bash
 cd tools && npm ci && cd ..      # once

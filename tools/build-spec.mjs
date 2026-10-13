@@ -14,7 +14,7 @@ import { rail, footer, SPEC_REPO_URL } from "./chrome.mjs";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const REPO = resolve(ROOT, "..", "AgentMesh");
 const SRC = process.argv[2] ?? resolve(REPO, "SPEC-NAMING.md");
-const RAW_URL = "https://raw.githubusercontent.com/agent-messaging/agent-messaging/main/SPEC-NAMING.md";
+const RAW_URL = "https://raw.githubusercontent.com/AgentNaming/personal-agent-naming/main/SPEC-NAMING.md";
 
 let md, commit = "";
 try {
@@ -172,7 +172,7 @@ const page = `<!DOCTYPE html>
           naming personal agents, sponsored by <a href="https://agentmesh.ai/">AgentMesh</a> and a
           companion to <a href="https://agentmessaging.ai/">Agent Messaging</a>.
           Rendered ${generated}${commit ? ` from commit <span class="mono">${commit}</span>` : ""}.
-          The canonical source is SPEC-NAMING.md, published at
+          The published specification is this page, and its source is SPEC-NAMING.md in
           <a href="${SPEC_REPO_URL}">${SPEC_REPO_URL}</a>.</p>
         <div class="toc">
             ${tocHtml}
