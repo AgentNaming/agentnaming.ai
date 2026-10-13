@@ -1,0 +1,30 @@
+# Personal Agent Naming (PAN): agentnaming.ai
+
+> Personal Agent Naming is an open standard for naming personal agents,
+> sponsored by AgentMesh. A handle is a name you choose on the email you
+> already have (`<name>.<email>`, for example `PublicAgent.ann@gmail.com`),
+> bound to your agent's key, and resolvable to a signed card listing the
+> addresses where the agent can be reached. It names agents and works with any
+> transport. This site explains the standard; nothing is claimed or paired here.
+
+## Getting a name
+
+- Any registrar that follows the specification can give an agent a name:
+  https://agentnaming.ai/get-a-name.html
+- AgentMesh, the sponsor, runs a registrar; start at https://agentmesh.ai
+- The specification: https://agentnaming.ai/spec.html
+
+## Resolution (public, no account)
+
+Any conforming registrar serves these paths. AgentMesh's registrar is at
+https://naming.agentmesh.ai.
+
+- `GET https://naming.agentmesh.ai/api/resolve?handle=<full-handle>`
+- WebFinger: `GET https://naming.agentmesh.ai/.well-known/webfinger?resource=acct:<handle>`
+- The registrar's signing keys: `GET https://naming.agentmesh.ai/api/registrar-key`
+
+## Reference
+
+- [What it is](https://agentnaming.ai/)
+- [For implementers](https://agentnaming.ai/implementers.html)
+- [Agent Messaging](https://agentmessaging.ai/), the messaging standard it is a companion to

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script async src="/ga.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why names: Personal Agent Naming</title>
+  <meta name="description" content="Personal agents are the most numerous agents there are, and almost none has a name another person can use. Personal Agent Naming gives them one.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Personal Agent Naming">
+  <meta property="og:title" content="Why names: Personal Agent Naming">
+  <meta property="og:description" content="Personal agents are the most numerous agents there are, and almost none has a name another person can use. Personal Agent Naming gives them one.">
+  <meta property="og:url" content="https://agentnaming.ai/why-names.html">
+  <meta property="og:image" content="https://agentnaming.ai/brand/png/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Personal Agent Naming. An open standard for naming personal agents">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <style>
+    .shelf{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:22px 0 6px; }
+    .mc{ position:relative; overflow:hidden; background:var(--panel); border:1px solid var(--line); border-radius:10px;
+      padding:12px 14px 12px 16px; }
+    .mc::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--faint); }
+    .mc.on::before{ background:var(--verify); box-shadow:0 0 9px rgba(67,214,166,.6); }
+    .mc.off{ opacity:.55; }
+    .mc .n{ font-family:var(--wire); font-size:.76rem; color:var(--paper); }
+    .mc .n .nm{ color:var(--signal); }
+    .mc .p{ font-family:var(--wire); font-size:.68rem; margin-top:6px; }
+    .mc.on .p{ color:var(--verify); } .mc.off .p{ color:var(--faint); }
+    @media (max-width:700px){ .shelf{ grid-template-columns:1fr; } }
+  </style>
+  <link rel="stylesheet" href="/theme.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="rail sidenav" id="sidenav">
+      <div class="sn-head">
+        <a class="sn-brand" href="/"><span class="dot"></span>PAN</a>
+        <button class="sn-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark"><span class="sn-to-dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="currentColor"/></svg></span><span class="sn-to-light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 1v1.8M8 13.2V15M1 8h1.8M13.2 8H15M3 3l1.3 1.3M11.7 11.7L13 13M3 13l1.3-1.3M11.7 4.3L13 3"/></g></svg></span><span class="sn-to-dark">Dark</span><span class="sn-to-light">Light</span></button>
+        <button class="sn-btn sn-menu" id="menu-toggle" type="button" aria-expanded="false" aria-controls="sidenav"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Menu</button>
+      </div>
+      <nav class="sn-nav" aria-label="agentnaming.ai">
+        <details class="sn-sec" open>
+          <summary>Personal Agent Naming<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="/">What it is</a>
+          <a class="on" href="/why-names.html">Why names</a>
+          <a href="/reach.html">How a name is resolved</a>
+          <a href="/trust.html">Trust and privacy</a>
+          <a href="/comparison.html">PAN and ANS</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>The standard<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>Related<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="https://agentmessaging.ai/">Agent Messaging ↗</a>
+          </div>
+        </details>
+      </nav>
+      <div class="sn-foot">An open standard for naming personal agents.<br>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a>.</div>
+    </aside>
+
+    <main class="main">
+
+      <div class="wrap hero">
+        <span class="eyebrow"><span class="tag">why</span> · names</span>
+        <h1>Most agents have no name</h1>
+        <p class="lede">The agents that exist in the largest numbers are personal ones: the
+          assistant in a terminal, the agent that reads someone's mail, the one that watches
+          their builds. They far outnumber the hosted, corporate kind, and almost none of them
+          has a name you can hand to another person.</p>
+      </div>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">who it is for</p>
+          <h2>Built for personal agents</h2>
+          <p>Coding assistants run in terminals, personal assistants run on gateways, and
+            agents read mail and watch builds for one person each. The directories that exist
+            were built for hosted agents that companies market by what they can do. Personal
+            agents were left out, because their owners have an email address and nothing
+            else: no domain, no certificates, no operations team. Personal Agent Naming
+            starts from exactly that.</p>
+          <p class="pull">Your agent gets a name you can put in an email signature, say in a
+            meeting, or paste into another agent's settings.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">the dns question</p>
+          <h2>Why a name does not point at an IP address</h2>
+          <p>DNS maps a name to an IP address because servers sit at stable, reachable
+            locations. A personal agent does not. It lives on a laptop that sleeps, moves
+            between networks, and sits behind a router whose address the provider changes and
+            which accepts no incoming connections. An IP address would name the router of
+            wherever the agent happens to be.</p>
+          <p>So a record in Personal Agent Naming points at an <b>identity</b>: the agent's
+            key. The agent keeps an outbound connection open, and delivery finds it wherever
+            it is, the same way a phone gets messages without a public IP address. It is
+            naming shaped like DNS, for things that have no stable address and should not
+            need one. A registrar may still show the owner where each agent last connected
+            from, the way an email account shows recent activity, so the owner can recognize
+            it. Delivery never uses it.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">who owns it</p>
+          <h2>The name outlives the registrar</h2>
+          <p>A registrar is a custodian of a name, and the owner of the email owns it. The
+            registrar witnessed the claim and keeps the record, and that is the whole of its
+            standing. It has no power to keep a name whose owner has moved on.</p>
+          <p>So a handle can move. Point it at a different registrar and the name stays the
+            same: the old registrar answers later lookups with a referral to the new one, and
+            it may never hand the name to anybody else. Nobody has to be told, because the
+            name they already have keeps working.</p>
+          <p>No registrar can take a name either. Before a registrar accepts a handle moving
+            in, it has to hear from the registrar letting go, and confirm the name was released
+            to it specifically. A registrar that simply asserts a name it was never given is
+            refused. This is where it parts from certificates, where any authority can vouch
+            for any name and the whole system is only as strong as its weakest authority.</p>
+          <p>Someone who owns the domain in their address outranks every registrar. When they
+            serve the record themselves, their answer is the one that counts.</p>
+          <p>Through all of this the agent's key stays the same, so a move changes only who
+            keeps the record. A new key would mean a new agent.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">the scope</p>
+          <h2>It names agents and does nothing else</h2>
+          <p>Personal Agent Naming does one job: it turns a string you pick into an address
+            other agents can reach. It does not run discovery, it does not grade agents, and it
+            does not carry messages. A resolved card may also say whether the agent is online,
+            when a source happens to know, but the name and its address are what it is for.</p>
+          <div class="cta">
+            <a class="btn btn-signal" href="/get-a-name.html">Get a name →</a>
+            <a class="btn btn-ghost" href="/">What it is →</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="wrap">
+          <span>Personal Agent Naming</span>
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          <a href="https://agentmessaging.ai/">agentmessaging.ai</a>
+          <a href="https://agentmesh.ai/">agentmesh.ai</a>
+          <span>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a></span>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>

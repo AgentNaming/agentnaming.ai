@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script async src="/ga.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust and privacy: Personal Agent Naming</title>
+  <meta name="description" content="What a handle proves, what it does not, what a registrar may and may not do, and why the registrar keeps its log private.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Personal Agent Naming">
+  <meta property="og:title" content="Trust and privacy: Personal Agent Naming">
+  <meta property="og:description" content="What a handle proves, what it does not, what a registrar may and may not do, and why the registrar keeps its log private.">
+  <meta property="og:url" content="https://agentnaming.ai/trust.html">
+  <meta property="og:image" content="https://agentnaming.ai/brand/png/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Personal Agent Naming. An open standard for naming personal agents">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <style>
+    .notlist{ list-style:none; padding:0; margin:16px 0 0; display:grid; gap:8px; color:var(--paper); max-width:66ch; }
+    .notlist li{ font-family:var(--body); }
+    .notlist li::before{ content:"✕  "; color:var(--red); font-family:var(--wire); }
+  </style>
+  <link rel="stylesheet" href="/theme.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="rail sidenav" id="sidenav">
+      <div class="sn-head">
+        <a class="sn-brand" href="/"><span class="dot"></span>PAN</a>
+        <button class="sn-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark"><span class="sn-to-dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="currentColor"/></svg></span><span class="sn-to-light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 1v1.8M8 13.2V15M1 8h1.8M13.2 8H15M3 3l1.3 1.3M11.7 11.7L13 13M3 13l1.3-1.3M11.7 4.3L13 3"/></g></svg></span><span class="sn-to-dark">Dark</span><span class="sn-to-light">Light</span></button>
+        <button class="sn-btn sn-menu" id="menu-toggle" type="button" aria-expanded="false" aria-controls="sidenav"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Menu</button>
+      </div>
+      <nav class="sn-nav" aria-label="agentnaming.ai">
+        <details class="sn-sec" open>
+          <summary>Personal Agent Naming<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="/">What it is</a>
+          <a href="/why-names.html">Why names</a>
+          <a href="/reach.html">How a name is resolved</a>
+          <a class="on" href="/trust.html">Trust and privacy</a>
+          <a href="/comparison.html">PAN and ANS</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>The standard<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>Related<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="https://agentmessaging.ai/">Agent Messaging ↗</a>
+          </div>
+        </details>
+      </nav>
+      <div class="sn-foot">An open standard for naming personal agents.<br>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a>.</div>
+    </aside>
+
+    <main class="main">
+
+      <div class="wrap hero">
+        <span class="eyebrow"><span class="tag">trust</span> · privacy</span>
+        <h1>What a handle proves</h1>
+        <p class="lede">Read this before trusting a handle. It says exactly what a handle
+          proves, what it does not, and why the registrar keeps its records private. A
+          registrar works like a notary: it records what it witnessed, and it does not vouch
+          for anything beyond that.</p>
+      </div>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">what happened, exactly</p>
+          <h2>Trusting a handle</h2>
+          <p>Here is precisely what the registrar witnessed: someone proved control of an
+            inbox, once. No third party can run that check again, so trusting the handle means
+            trusting the registrar's word, held to account by the hash-chained log below.
+            Anyone who needs an identity anchored to a domain, checkable by anyone and backed
+            by certificate authorities should look at
+            <a href="https://datatracker.ietf.org/doc/draft-narajala-courtney-ansv2/">ANS</a>.
+            Personal Agent Naming does not aim that high, on purpose.</p>
+          <p>Two mechanisms back the registrar's word. The registrar signs every card, so a
+            client can check that a card it received is genuine and unaltered. And clients
+            remember what they saw: once a client has resolved a handle, a change in the key
+            behind it shows up as a change instead of passing silently.</p>
+          <p class="pull">A handle tells you where to reach an agent. It does not tell you how good the agent is.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">the limit</p>
+          <h2>What a handle does not prove</h2>
+          <p>A handle says who claimed a name and, when it is bound, that they control the
+            agent behind it. It says nothing about how the agent behaves. It does not prove:</p>
+          <ul class="notlist">
+            <li>that the agent is competent</li>
+            <li>that the agent is safe</li>
+            <li>that anyone endorses it</li>
+            <li>that its capability claims are true</li>
+            <li>that the operator's display name is their legal or real name</li>
+          </ul>
+          <p>The operator's name deserves a word of its own. Every operator has a required
+            public display name, set while signed in with the verified email, the same across
+            all their handles, and with every change recorded. That makes it a stable claim
+            anyone can audit, and a message cannot assert it: software showing it takes it
+            from resolution, never from what a message says. It is still whatever the
+            mailbox owner chose to type. The verified fact is the email, and the name rests
+            on it.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">what a registrar cannot do</p>
+          <h2>A registrar keeps the record and the owner keeps the name</h2>
+          <p>The limits matter as much as the claims, so here they are plainly. A registrar
+            cannot keep a name whose owner moves it elsewhere. It records the departure,
+            answers later lookups with a referral to the new registrar, and may never issue
+            that name to anyone else.</p>
+          <p>A different registrar cannot take a name either. Accepting a handle moving in
+            requires confirming with the registrar letting go that the name was released to it
+            specifically. A signed statement from a key holder is not enough on its own,
+            because a signature proves control of that key and says nothing about who holds the
+            name. The registrar losing the name has to agree that it let it go.</p>
+          <p>A registrar's word is not final where the owner has a better claim. When the
+            domain in the address serves its own record, that record wins over any
+            registrar's.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">privacy</p>
+          <h2>The log is private</h2>
+          <p>Every claim, binding and release is recorded in a hash chain, so tampering can be
+            detected, and owners can audit the full history of their own handles. The log
+            itself is private. A handle contains its owner's email address, so a log anyone
+            could read would let anyone list every handle an owner has by searching for their
+            email. Typing in someone else's email returns nothing: the only way to see an
+            owner's handles is to prove control of that email.</p>
+          <div class="callout">
+            <div class="t">the trade, stated plainly</div>
+            <p>A private log means nobody outside can cross-check the registrar in this
+              version. That trades outside auditing for the owner's privacy, deliberately. A way
+              to check a registrar publicly while keeping owners private is named in the
+              specification as future work.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="wrap">
+          <span>Personal Agent Naming</span>
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          <a href="https://agentmessaging.ai/">agentmessaging.ai</a>
+          <a href="https://agentmesh.ai/">agentmesh.ai</a>
+          <span>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a></span>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>

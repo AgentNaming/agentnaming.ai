@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script async src="/ga.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAN and ANS: Personal Agent Naming</title>
+  <meta name="description" content="PAN and ANS both name agents, for different people. ANS anchors organizations' agents to DNS domains and certificates. PAN anchors personal agents to the email their owner already has.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Personal Agent Naming">
+  <meta property="og:title" content="PAN and ANS: Personal Agent Naming">
+  <meta property="og:description" content="PAN and ANS both name agents, for different people. ANS anchors organizations' agents to DNS domains and certificates. PAN anchors personal agents to the email their owner already has.">
+  <meta property="og:url" content="https://agentnaming.ai/comparison.html">
+  <meta property="og:image" content="https://agentnaming.ai/brand/png/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Personal Agent Naming. An open standard for naming personal agents">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <style>
+    .cmp-wrap{ overflow-x:auto; margin:24px 0 6px; border:1px solid var(--line); border-radius:12px; }
+    table.cmp{ width:100%; border-collapse:collapse; font-size:.9rem; min-width:640px; }
+    table.cmp th, table.cmp td{ text-align:left; padding:13px 16px; border-bottom:1px solid var(--line); vertical-align:top; }
+    table.cmp thead th{ font-family:var(--wire); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--faint); background:rgba(255,255,255,.015); }
+    table.cmp thead th.pan{ color:var(--signal); }
+    table.cmp tbody tr:last-child td{ border-bottom:0; }
+    table.cmp td.dim{ color:var(--dim); font-family:var(--wire); font-size:.8rem; width:170px; }
+    table.cmp td.ans{ color:var(--paper); }
+    table.cmp td.pan{ color:var(--paper); background:rgba(242,169,59,.05);
+      border-left:1px solid rgba(242,169,59,.25); border-right:1px solid rgba(242,169,59,.25); }
+    table.cmp tbody tr:first-child td.pan{ border-top:1px solid rgba(242,169,59,.35); }
+    table.cmp tbody tr:last-child td.pan{ border-bottom:1px solid rgba(242,169,59,.35); }
+    table.cmp b{ color:var(--paper); font-weight:600; }
+    .weigh{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:26px; }
+    @media (max-width:760px){ .weigh{ grid-template-columns:1fr; } }
+    .weigh .w{ border:1px solid var(--line); border-radius:12px; background:var(--panel); padding:20px 18px;
+      border-top:3px solid var(--hue,var(--signal)); }
+    .weigh .w .n{ font-family:var(--wire); font-size:.72rem; letter-spacing:.06em; color:var(--hue,var(--signal)); }
+    .weigh .w h3{ font-size:1.15rem; margin:8px 0 6px; }
+    .weigh .w p{ color:var(--dim); font-size:.92rem; max-width:none; }
+    .weigh .w ul{ margin:10px 0 0; padding-left:18px; color:var(--dim); font-size:.88rem; }
+    .weigh .w li{ margin:6px 0; }
+    @media (max-width:700px){
+      table.cmp{ font-size:.84rem; }
+      table.cmp th, table.cmp td{ padding:10px 12px; }
+      table.cmp td.dim{ width:120px; }
+      .weigh .w{ padding:16px 14px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/theme.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="rail sidenav" id="sidenav">
+      <div class="sn-head">
+        <a class="sn-brand" href="/"><span class="dot"></span>PAN</a>
+        <button class="sn-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark"><span class="sn-to-dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="currentColor"/></svg></span><span class="sn-to-light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 1v1.8M8 13.2V15M1 8h1.8M13.2 8H15M3 3l1.3 1.3M11.7 11.7L13 13M3 13l1.3-1.3M11.7 4.3L13 3"/></g></svg></span><span class="sn-to-dark">Dark</span><span class="sn-to-light">Light</span></button>
+        <button class="sn-btn sn-menu" id="menu-toggle" type="button" aria-expanded="false" aria-controls="sidenav"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Menu</button>
+      </div>
+      <nav class="sn-nav" aria-label="agentnaming.ai">
+        <details class="sn-sec" open>
+          <summary>Personal Agent Naming<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="/">What it is</a>
+          <a href="/why-names.html">Why names</a>
+          <a href="/reach.html">How a name is resolved</a>
+          <a href="/trust.html">Trust and privacy</a>
+          <a class="on" href="/comparison.html">PAN and ANS</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>The standard<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>Related<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="https://agentmessaging.ai/">Agent Messaging ↗</a>
+          </div>
+        </details>
+      </nav>
+      <div class="sn-foot">An open standard for naming personal agents.<br>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a>.</div>
+    </aside>
+
+    <main class="main">
+
+      <div class="wrap hero">
+        <span class="eyebrow"><span class="tag">compare</span> · pan &amp; ans</span>
+        <h1>PAN and ANS name agents for different people</h1>
+        <p class="lede">PAN and ANS both give agents names, and the names even look alike. They are built
+          for opposite ends of the same problem. ANS is a full identity layer for agents acting
+          across organizations. PAN is a light naming layer for personal agents. Each is built
+          for its own job, and neither is a smaller version of the other.</p>
+      </div>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">the short version</p>
+          <h2>Built for different weights, on purpose</h2>
+          <p><a href="https://datatracker.ietf.org/doc/draft-narajala-courtney-ansv2/">ANS,
+            the Agent Name Service</a>, anchors every agent to a DNS domain. A registration
+            authority checks that you control the domain, has two X.509 certificates issued for
+            the agent (one from a public CA, one from a private CA), and seals every lifecycle
+            event into an append-only transparency log.
+            That suits autonomous agents settling financial or supply-chain transactions across
+            company boundaries, and it is more than a person with an inbox and an agent can set
+            up. PAN starts from the credential that person already has, their email: one anchor
+            and one signature, and a name takes minutes.</p>
+          <p>This page compares version 0.10 of the PAN specification with
+            <a href="https://datatracker.ietf.org/doc/html/draft-narajala-courtney-ansv2-01">draft-narajala-courtney-ansv2-01</a>,
+            the current ANS revision, dated 13 April 2026. It is an individual Internet-Draft,
+            not a working group document, with an intended status of Informational. As of 13
+            October 2026 no newer revision has been posted, and this one expires on 15 October
+            2026 unless one is. The original ANS draft,
+            <a href="https://datatracker.ietf.org/doc/html/draft-narajala-ans-00">draft-narajala-ans-00</a>
+            from May 2025, has been replaced by the v2 draft.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">side by side</p>
+          <h2>The comparison</h2>
+          <div class="cmp-wrap">
+            <table class="cmp">
+              <thead>
+                <tr><th>Dimension</th><th>ANS</th><th class="pan">PAN</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="dim">Built for</td>
+                  <td class="ans">Autonomous agents transacting across organizations: finance, supply chain, sensitive business</td>
+                  <td class="pan">Personal agents, owned by someone with an email and nothing else</td>
+                </tr>
+                <tr>
+                  <td class="dim">Weight class</td>
+                  <td class="ans">Heavyweight. Identity infrastructure that can run in public, inside one enterprise, or among partners</td>
+                  <td class="pan">Lightweight. A name and an address, minutes to set up</td>
+                </tr>
+                <tr>
+                  <td class="dim">Root of trust</td>
+                  <td class="ans">DNS domain control, verified by ACME (a DNS-01 or HTTP-01 challenge)</td>
+                  <td class="pan">Control of an email inbox</td>
+                </tr>
+                <tr>
+                  <td class="dim">Identity</td>
+                  <td class="ans">Two X.509 certificates: a server certificate from a public CA and an identity certificate from a private CA. Agents connect over mTLS. Signatures use ES256 by default</td>
+                  <td class="pan">An Ed25519 key; a pairing signature binds name to agent. The registrar signs every card it serves</td>
+                </tr>
+                <tr>
+                  <td class="dim">Name form</td>
+                  <td class="ans"><span class="mono">ans://v1.0.0.agent.example.com</span> · structured, versioned</td>
+                  <td class="pan"><span class="mono">Coder.ana@example.org</span> · opaque, never parsed</td>
+                </tr>
+                <tr>
+                  <td class="dim">Software changes</td>
+                  <td class="ans">Every code change is a new version, with a new name, a new identity certificate and a new log entry</td>
+                  <td class="pan">The name stays the same. Only a new key changes identity, and the card lists every key change</td>
+                </tr>
+                <tr>
+                  <td class="dim">To register</td>
+                  <td class="ans">A domain, a version, an endpoint and a certificate request, sent to a registration authority that runs ACME, gets both certificates issued and gives you DNS records to publish. An SDK automates the steps</td>
+                  <td class="pan">Prove control of the email at a registrar, sign the pairing with the agent's key, and choose a name. At AgentMesh's registrar this is one step in the account</td>
+                </tr>
+                <tr>
+                  <td class="dim">Verification</td>
+                  <td class="ans">The client picks a tier: Bronze checks the certificates, Silver adds DANE over DNSSEC, Gold adds the transparency log</td>
+                  <td class="pan">The resolver checks the registrar's signature on the card and pins the agent key, warning loudly if it changes</td>
+                </tr>
+                <tr>
+                  <td class="dim">Transparency</td>
+                  <td class="ans">Append-only log aligned with IETF SCITT: inclusion and consistency proofs, COSE receipts. Public in a public deployment</td>
+                  <td class="pan">Owner-scoped hash chain, kept private because a public log would leak rosters. Each handle's key changes are public, and so are signed counts of the log's entries</td>
+                </tr>
+                <tr>
+                  <td class="dim">Discovery</td>
+                  <td class="ans">Separate from registration: independent discovery services index the sealed events</td>
+                  <td class="pan">No search. Resolves a name you already have; an owner can opt in to being found by email</td>
+                </tr>
+                <tr>
+                  <td class="dim">Beyond identity</td>
+                  <td class="ans">Identity only, with room for third-party attestations (SOC 2, SBOMs) and separate trust scoring</td>
+                  <td class="pan">None. A handle says where to reach an agent and nothing about how good it is</td>
+                </tr>
+                <tr>
+                  <td class="dim">Messaging</td>
+                  <td class="ans">None of its own. Agents speak A2A, MCP or HTTP, over mTLS with the identity certificate</td>
+                  <td class="pan">None. Hands the address to A2A or Agent Messaging</td>
+                </tr>
+                <tr>
+                  <td class="dim">Federation</td>
+                  <td class="ans">Designed in: anyone may run a registration authority, log, trust index or discovery service. A governed multi-RA ecosystem is future work</td>
+                  <td class="pan">A domain can answer for its own addresses, and an owner can move a name to another registrar. How a network of registrars is governed is not specified yet</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">which one</p>
+          <h2>Pick by what you have</h2>
+          <div class="weigh">
+            <div class="w" style="--hue:var(--address)">
+              <div class="n">reach for ANS</div>
+              <h3>You are an organization</h3>
+              <ul>
+                <li>You own a domain, control its DNS, and can register with a registration authority.</li>
+                <li>Your agents transact across company boundaries.</li>
+                <li>You need public, provable, tamper-evident audit trails.</li>
+                <li>Identity has to satisfy security and compliance review.</li>
+              </ul>
+            </div>
+            <div class="w" style="--hue:var(--signal)">
+              <div class="n">reach for PAN</div>
+              <h3>You are a person</h3>
+              <ul>
+                <li>You have an agent and an email, and no PKI team.</li>
+                <li>You want a name to hand out, today, in minutes.</li>
+                <li>You want the name to resolve to a reachable address.</li>
+                <li>You do not need enterprise-grade, re-verifiable identity.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout mint">
+            <div class="t">they can coexist</div>
+            <p>The two are not mutually exclusive. One agent can carry a PAN handle for the
+              people who reach it by name, and an ANS identity for the organizations that
+              require CA-backed trust. They are different layers on the same agent.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="wrap">
+          <span>Personal Agent Naming</span>
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          <a href="https://agentmessaging.ai/">agentmessaging.ai</a>
+          <a href="https://agentmesh.ai/">agentmesh.ai</a>
+          <span>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a></span>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>

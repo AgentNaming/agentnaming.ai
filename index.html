@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script async src="/ga.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Agent Naming</title>
+  <meta name="description" content="Personal Agent Naming is an open standard for naming personal agents: a name you choose, on the email you already have, bound to your agent's key, and resolvable to where it can be reached.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Personal Agent Naming">
+  <meta property="og:title" content="Personal Agent Naming">
+  <meta property="og:description" content="Personal Agent Naming is an open standard for naming personal agents: a name you choose, on the email you already have, bound to your agent's key, and resolvable to where it can be reached.">
+  <meta property="og:url" content="https://agentnaming.ai/">
+  <meta property="og:image" content="https://agentnaming.ai/brand/png/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Personal Agent Naming. An open standard for naming personal agents">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <style>
+    .handle-fig{ margin:34px 0 4px; background:var(--panel); border:1px solid var(--line); border-radius:12px;
+      overflow:hidden; box-shadow:0 30px 70px -40px rgba(0,0,0,.9); }
+    .handle-fig .bar{ display:flex; align-items:center; gap:8px; padding:11px 16px; border-bottom:1px solid var(--line);
+      font-family:var(--wire); font-size:.74rem; color:var(--dim); background:rgba(255,255,255,.015); }
+    .handle-fig .bar .lamp{ width:8px; height:8px; border-radius:50%; background:var(--verify); box-shadow:0 0 10px var(--verify); }
+    .handle-fig pre{ margin:0; padding:20px 18px; font-family:var(--wire); font-size:.86rem; line-height:1.95; color:var(--paper); overflow-x:auto; }
+    .handle-fig pre .name{ color:var(--signal); }
+    .handle-fig pre .k{ color:var(--faint); }
+    .handle-fig pre .ok{ color:var(--verify); }
+    .handle-fig pre .addr{ color:var(--address); }
+    .hero .subtitle{ font-family:var(--disp); font-weight:600; font-size:clamp(1.2rem,2.4vw,1.5rem);
+      color:var(--paper); margin:6px 0 12px; max-width:40ch; }
+    @media (max-width:700px){
+      .handle-fig .bar{ flex-wrap:wrap; row-gap:2px; }
+      .handle-fig .bar .name{ overflow-wrap:anywhere; }
+      .handle-fig pre{ padding:14px 12px; font-size:.74rem; }
+    }
+  </style>
+  <link rel="stylesheet" href="/theme.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="rail sidenav" id="sidenav">
+      <div class="sn-head">
+        <a class="sn-brand" href="/"><span class="dot"></span>PAN</a>
+        <button class="sn-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark"><span class="sn-to-dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="currentColor"/></svg></span><span class="sn-to-light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 1v1.8M8 13.2V15M1 8h1.8M13.2 8H15M3 3l1.3 1.3M11.7 11.7L13 13M3 13l1.3-1.3M11.7 4.3L13 3"/></g></svg></span><span class="sn-to-dark">Dark</span><span class="sn-to-light">Light</span></button>
+        <button class="sn-btn sn-menu" id="menu-toggle" type="button" aria-expanded="false" aria-controls="sidenav"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Menu</button>
+      </div>
+      <nav class="sn-nav" aria-label="agentnaming.ai">
+        <details class="sn-sec" open>
+          <summary>Personal Agent Naming<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a class="on" href="/">What it is</a>
+          <a href="/why-names.html">Why names</a>
+          <a href="/reach.html">How a name is resolved</a>
+          <a href="/trust.html">Trust and privacy</a>
+          <a href="/comparison.html">PAN and ANS</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>The standard<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>Related<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="https://agentmessaging.ai/">Agent Messaging ↗</a>
+          </div>
+        </details>
+      </nav>
+      <div class="sn-foot">An open standard for naming personal agents.<br>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a>.</div>
+    </aside>
+
+    <main class="main">
+
+      <div class="wrap hero">
+        <span class="eyebrow"><span class="tag">pan</span> · personal agent naming</span>
+        <h1>Personal Agent Naming</h1>
+        <p class="subtitle">An open standard for naming personal agents.</p>
+        <p class="lede">A name you choose, on the email you already have, bound to your
+          agent's key, and resolvable to where it can be reached.</p>
+        <div class="cta">
+          <a class="btn btn-signal" href="/get-a-name.html">Get a name →</a>
+          <a class="btn btn-ghost" href="/spec.html">Read the specification</a>
+        </div>
+
+        <div class="handle-fig">
+          <div class="bar"><span class="lamp"></span> resolve · <span class="name">PublicAgent.ann@gmail.com</span></div>
+<pre><span class="k">handle </span> <span class="name">PublicAgent.ann@gmail.com</span>
+<span class="k">bound  </span> <span class="ok">✓ agent-key</span>       <span class="k">presence</span> <span class="ok">online</span>
+<span class="k">reach  </span> <span class="addr">agentmesh</span> · agent <span class="addr">UD653KLV…</span> @ node <span class="addr">UB2FF…</span></pre>
+        </div>
+      </div>
+
+      <!-- WHAT A HANDLE IS -->
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">the shape</p>
+          <h2>A handle is a name on your email</h2>
+          <p>A handle is one string: a name you pick, a dot, and the email you already
+            own. <span class="mono amber">PublicAgent.ann@gmail.com</span> is the agent
+            called PublicAgent, run by whoever controls that inbox. Looking a handle up
+            matches the whole string, and nothing parses it into parts, so any name works,
+            dots included. Each handle has one owner, and the first to claim it gets it.</p>
+        </div>
+      </section>
+
+      <!-- WHY EMAIL -->
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">the anchor</p>
+          <h2>Why names are anchored to email</h2>
+          <p>Most people who run a personal agent have an email address and nothing
+            else: no domain, no certificates, no operations team. So Personal Agent Naming
+            roots every name in the one credential they already hold. Whoever controls the
+            inbox controls the names under it, and a handle lasts as long as its owner can
+            keep proving that control. An email is also how people already know each other,
+            so a handle tells a reader something true at a glance: which mailbox stands
+            behind this agent.</p>
+          <p>A handle gives your agent an address. Carrying messages to that address is the
+            job of the protocol behind it, such as <a href="https://agentmessaging.ai/">Agent
+            Messaging</a>.</p>
+        </div>
+      </section>
+
+      <!-- TRUST IN BRIEF -->
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">trust, in brief</p>
+          <h2>You can check who is behind a name</h2>
+          <p>A resolved handle comes back as a card: the agent's verified address, the
+            operator's public display name, and the binding that ties the name to the
+            agent's own key. The registrar signs every card, so a client can check that a
+            card is genuine, and clients remember what they saw, so a change in the agent
+            behind a name shows up instead of passing silently. The
+            <a href="/trust.html">trust page</a> says exactly what a handle proves and what
+            it does not.</p>
+        </div>
+      </section>
+
+      <!-- OPEN -->
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">an open standard</p>
+          <h2>Anyone can run a registrar</h2>
+          <p>A registrar witnesses claims, keeps the record and answers lookups. The
+            <a href="/spec.html">specification</a> is open, any registrar that follows it can
+            hold names, and a name can move from one registrar to another without changing.
+            Someone who owns the domain in their address can serve their own records, and
+            those records outrank any registrar's.</p>
+          <p>AgentMesh, the sponsor of the standard, runs a registrar today.<!-- OPEN-REGISTRAR: when the open-source registrar is released, add one sentence here naming it and linking its public repository. --></p>
+          <div class="cta">
+            <a class="btn btn-signal" href="/get-a-name.html">Get a name →</a>
+            <a class="btn btn-ghost" href="/implementers.html">For implementers</a>
+          </div>
+          <div class="docs">
+            <a href="/why-names.html"><div class="h">/ why</div><h3>Why names</h3><p>Personal agents are the most numerous agents there are, and almost none has a name.</p></a>
+            <a href="/reach.html"><div class="h">/ resolve</div><h3>How a name is resolved</h3><p>A handle resolves to a signed card that lists where the agent can be reached.</p></a>
+            <a href="/trust.html"><div class="h">/ trust</div><h3>Trust and privacy</h3><p>What a handle proves, what it does not, and why the log is private.</p></a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="wrap">
+          <span>Personal Agent Naming</span>
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          <a href="https://agentmessaging.ai/">agentmessaging.ai</a>
+          <a href="https://agentmesh.ai/">agentmesh.ai</a>
+          <span>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a></span>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>

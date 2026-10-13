@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script async src="/ga.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How a name is resolved: Personal Agent Naming</title>
+  <meta name="description" content="A handle resolves to a signed card that lists the addresses where an agent can be reached. Personal Agent Naming works with any protocol, and the protocol at each address carries the messages.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Personal Agent Naming">
+  <meta property="og:title" content="How a name is resolved: Personal Agent Naming">
+  <meta property="og:description" content="A handle resolves to a signed card that lists the addresses where an agent can be reached. Personal Agent Naming works with any protocol, and the protocol at each address carries the messages.">
+  <meta property="og:url" content="https://agentnaming.ai/reach.html">
+  <meta property="og:image" content="https://agentnaming.ai/brand/png/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Personal Agent Naming. An open standard for naming personal agents">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <style>
+    .card{ margin:24px 0 6px; background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden;
+      box-shadow:0 30px 70px -40px rgba(0,0,0,.9); max-width:680px; }
+    .card .bar{ display:flex; align-items:center; gap:8px; padding:11px 16px; border-bottom:1px solid var(--line);
+      font-family:var(--wire); font-size:.74rem; color:var(--dim); background:rgba(255,255,255,.015); }
+    .card .bar .lamp{ width:8px; height:8px; border-radius:50%; background:var(--verify); box-shadow:0 0 10px var(--verify); }
+    .card .kv{ padding:16px 18px; font-family:var(--wire); font-size:.84rem; line-height:1.95; }
+    .card .kv .k{ color:var(--faint); display:inline-block; width:88px; }
+    .card .kv .name{ color:var(--signal); } .card .kv .ok{ color:var(--verify); }
+    .card .eps{ border-top:1px solid var(--line); }
+    .card .ep{ display:grid; grid-template-columns:104px 1fr; gap:0 14px; padding:9px 18px; border-bottom:1px solid var(--line);
+      font-family:var(--wire); font-size:.8rem; }
+    .card .eps .ep:last-child{ border-bottom:0; }
+    .card .ep .proto{ color:var(--address); } .card .ep .a{ color:var(--paper); word-break:break-all; }
+    .card .ep .proto.mesh{ color:var(--signal); }
+    .card .hand{ padding:12px 18px; border-top:1px solid var(--line); font-family:var(--wire); font-size:.76rem; color:var(--dim); }
+    .card .hand b{ color:var(--address); }
+    .verbs{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:22px; max-width:660px; }
+    @media (max-width:640px){ .verbs{ grid-template-columns:1fr; } }
+    .verb{ border:1px solid var(--line); border-radius:10px; background:var(--panel); padding:14px 16px;
+      border-top:2px solid var(--hue,var(--signal)); }
+    .verb .w{ font-family:var(--wire); font-size:.78rem; color:var(--hue,var(--signal)); }
+    .verb p{ margin:6px 0 0; font-size:.88rem; color:var(--dim); }
+    @media (max-width:700px){
+      .card .bar{ flex-wrap:wrap; row-gap:2px; }
+      .card .kv{ padding:12px 14px; font-size:.76rem; }
+      .card .kv .k{ width:72px; }
+      .card .kv .name, .card .kv div{ overflow-wrap:anywhere; }
+      .card .ep{ grid-template-columns:82px 1fr; padding:9px 14px; font-size:.74rem; }
+      .card .hand{ padding:10px 14px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/theme.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="rail sidenav" id="sidenav">
+      <div class="sn-head">
+        <a class="sn-brand" href="/"><span class="dot"></span>PAN</a>
+        <button class="sn-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark"><span class="sn-to-dark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="currentColor"/></svg></span><span class="sn-to-light"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 1v1.8M8 13.2V15M1 8h1.8M13.2 8H15M3 3l1.3 1.3M11.7 11.7L13 13M3 13l1.3-1.3M11.7 4.3L13 3"/></g></svg></span><span class="sn-to-dark">Dark</span><span class="sn-to-light">Light</span></button>
+        <button class="sn-btn sn-menu" id="menu-toggle" type="button" aria-expanded="false" aria-controls="sidenav"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Menu</button>
+      </div>
+      <nav class="sn-nav" aria-label="agentnaming.ai">
+        <details class="sn-sec" open>
+          <summary>Personal Agent Naming<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="/">What it is</a>
+          <a href="/why-names.html">Why names</a>
+          <a class="on" href="/reach.html">How a name is resolved</a>
+          <a href="/trust.html">Trust and privacy</a>
+          <a href="/comparison.html">PAN and ANS</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>The standard<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          </div>
+        </details>
+        <details class="sn-sec" open>
+          <summary>Related<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="sn-items">
+          <a href="https://agentmessaging.ai/">Agent Messaging ↗</a>
+          </div>
+        </details>
+      </nav>
+      <div class="sn-foot">An open standard for naming personal agents.<br>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a>.</div>
+    </aside>
+
+    <main class="main">
+
+      <div class="wrap hero">
+        <span class="eyebrow"><span class="tag">resolve</span> · reach</span>
+        <h1>How a name is resolved</h1>
+        <p class="lede">Hand your handle to anyone: put it in an email signature, or give it
+          to a colleague's agent. They resolve it to a card, and the card lists the addresses
+          where your agent can be reached. The protocol at each address carries the messages,
+          and Personal Agent Naming works with any of them.</p>
+      </div>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">resolve</p>
+          <h2>A handle goes in, and a card comes out</h2>
+          <p>Resolution looks up the whole handle as one string and needs no account. The card
+            it returns carries the binding, whether the agent is online, and the part that
+            matters here, the typed <b>endpoints</b>. An endpoint is a protocol and an address,
+            and it can be any protocol the agent actually publishes.</p>
+
+          <div class="card">
+            <div class="bar"><span class="lamp"></span> resolve · <span style="color:var(--signal)">Coder.ana@example.org</span></div>
+            <div class="kv">
+              <div><span class="k">handle</span> <span class="name">Coder.ana@example.org</span></div>
+              <div><span class="k">operator</span> <span style="color:var(--paper)">Ana Lima</span></div>
+              <div><span class="k">bound</span> <span class="ok">✓ agent-key</span></div>
+              <div><span class="k">presence</span> <span class="ok">online</span></div>
+            </div>
+            <div class="eps">
+              <div class="ep"><span class="proto mesh">agentmesh</span><span class="a">agent UD653KLV… @ node UB2FF…</span></div>
+              <div class="ep"><span class="proto">a2a</span><span class="a">https://…/.well-known/agent-card.json</span></div>
+              <div class="ep"><span class="proto">https</span><span class="a">https://agent.example.org/api (openapi)</span></div>
+              <div class="ep"><span class="proto">mcp</span><span class="a">https://…/mcp</span></div>
+            </div>
+            <div class="hand">The endpoints are the address. Naming ends here, and the protocol at each address takes over.</div>
+          </div>
+          <p style="color:var(--faint); font-family:var(--wire); font-size:.78rem; margin-top:10px;">A card can list any number of protocols, whatever addresses the agent has.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">the handoff</p>
+          <h2>Naming finds the agent, and a protocol carries the message</h2>
+          <p>Personal Agent Naming resolves a name to a set of addresses, and the protocol at
+            whichever address you pick does the communicating. Naming and communicating are
+            different jobs, done by different layers, on purpose. A consuming agent reads an
+            endpoint off the card and speaks its protocol, and naming plays no further part.</p>
+          <div class="verbs">
+            <div class="verb" style="--hue:var(--signal)"><div class="w">agentmesh</div><p>An endpoint of this type is an address for <a href="https://agentmessaging.ai/">Agent Messaging</a>. The key that bound the name is already the agent's address there, so there is nothing more to set up, and messages wait in the agent's inbox while it is offline.</p></div>
+            <div class="verb" style="--hue:var(--verify)"><div class="w">a2a</div><p>When the card lists an A2A endpoint, a consumer talks to it directly over A2A.</p></div>
+            <div class="verb" style="--hue:var(--address)"><div class="w">https · openapi</div><p>A plain reachable endpoint is a valid address. The consumer calls it over HTTP.</p></div>
+            <div class="verb" style="--hue:var(--broadcast)"><div class="w">mcp · webhooks · more</div><p>Any protocol the agent publishes is a way to reach it. The card carries the address and leaves the choice of protocol to the consumer.</p></div>
+          </div>
+          <p class="pull">The name gets you the address. The protocol at that address does the communicating.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <p class="kicker">why it matters</p>
+          <h2>What a bound name is for</h2>
+          <ul class="plain">
+            <li><b>One agent asking another for help.</b> Your colleague's agent resolves
+              <span class="mono amber">Coder.ana@example.org</span>, reads your agent's
+              address off the card, and hands it a task over whatever protocol they share.
+              Names exist so agents can find and reach each other.</li>
+            <li><b>A handle you can hand out.</b> Put it in an email signature or say it in a
+              meeting. A person pastes it into their own agent, and it reaches yours.</li>
+            <li><b>Tools that already speak <span class="mono">acct:</span>.</b> A handle is a
+              valid <span class="mono">acct:</span> URI, so WebFinger resolves it with no new
+              code.</li>
+          </ul>
+          <div class="cta">
+            <a class="btn btn-signal" href="/get-a-name.html">Get a name →</a>
+            <a class="btn btn-ghost" href="/implementers.html">Resolving a handle →</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="wrap">
+          <span>Personal Agent Naming</span>
+          <a href="/spec.html">The specification</a>
+          <a href="/get-a-name.html">Get a name</a>
+          <a href="/implementers.html">For implementers</a>
+          <a href="https://agentmessaging.ai/">agentmessaging.ai</a>
+          <a href="https://agentmesh.ai/">agentmesh.ai</a>
+          <span>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a></span>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>
