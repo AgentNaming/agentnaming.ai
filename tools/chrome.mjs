@@ -9,6 +9,9 @@ import { fileURLToPath } from "node:url";
 
 // Where SPEC-NAMING.md is mirrored with the Agent Messaging specification.
 export const SPEC_REPO_URL = "https://github.com/agent-messaging/agent-messaging";
+// The published copy of SPEC-NAMING.md, and this site's own source.
+export const SPEC_FILE_URL = SPEC_REPO_URL + "/blob/main/SPEC-NAMING.md";
+export const SITE_REPO_URL = "https://github.com/AgentNaming/agentnaming.ai";
 
 const chev = `<svg class="sn-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
@@ -39,6 +42,7 @@ export function rail(active) {
           a("/spec.html", "The specification", "spec"),
           a("/get-a-name.html", "Get a name", "get"),
           a("/implementers.html", "For implementers", "implementers"),
+          `<a href="${SPEC_FILE_URL}">The specification on GitHub ↗</a>`,
         ])}
         ${sec("Related", [
           `<a href="https://agentmessaging.ai/">Agent Messaging ↗</a>`,
@@ -54,6 +58,8 @@ export const footer = `<footer>
           <a href="/spec.html">The specification</a>
           <a href="/get-a-name.html">Get a name</a>
           <a href="/implementers.html">For implementers</a>
+          <a href="${SPEC_FILE_URL}">The specification on GitHub</a>
+          <a href="${SITE_REPO_URL}">This site's source</a>
           <a href="https://agentmessaging.ai/">agentmessaging.ai</a>
           <a href="https://agentmesh.ai/">agentmesh.ai</a>
           <span>Sponsored by <a href="https://agentmesh.ai/">AgentMesh</a></span>
