@@ -142,7 +142,7 @@
         <p class="canon">The normative specification of Personal Agent Naming, an open standard for
           naming personal agents, sponsored by <a href="https://agentmesh.ai/">AgentMesh</a> and a
           companion to <a href="https://agentmessaging.ai/">Agent Messaging</a>.
-          Rendered 2026-10-13 from commit <span class="mono">d34cc43f</span>.
+          Rendered 2026-10-13.
           The published specification is this page, and its source is SPEC-NAMING.md in
           <a href="https://github.com/AgentNaming/personal-agent-naming">https://github.com/AgentNaming/personal-agent-naming</a>.</p>
         <div class="toc">
@@ -1435,10 +1435,11 @@ what (e.g. Merkle commitments / SCITT-style inclusion proofs over the §6
 chain).</li>
 </ul>
 <h2 id="11-implementations">11. Implementations<a class="hl" href="#11-implementations">#</a></h2>
-<p>AgentMesh runs a registrar at <code>https://naming.agentmesh.ai</code>. It is the
-reference registrar this document cites for its defaults.</p>
-<!-- OPEN-REGISTRAR: when the open-source registrar is released, name its public repository here. -->
-<p>Live and
+<p>The reference implementation is the Personal Agent Naming registrar,
+<a href="https://github.com/AgentNaming/pan-registrar">https://github.com/AgentNaming/pan-registrar</a>, open source under the Apache
+2.0 license. AgentMesh, the sponsor, runs a release of it at
+<code>https://naming.agentmesh.ai</code>, the deployment this document cites for its
+defaults. Live and
 verified end-to-end: email-tier claiming, §4.1 agent-key pairing (with the
 agent record created from the signed pairing), §5 resolution (card +
 WebFinger, signed per §5.3), and the §6 hash-chained, owner-scoped history
