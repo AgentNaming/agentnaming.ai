@@ -20,7 +20,7 @@ let md, commit = "";
 try {
   md = readFileSync(SRC, "utf8");
   try {
-    commit = execSync(`git -C "${REPO}" rev-parse --short HEAD`, { encoding: "utf8" }).trim();
+    commit = execSync(`git -C "${dirname(SRC)}" rev-parse --short HEAD`, { encoding: "utf8" }).trim();
   } catch { /* no local repo info */ }
 } catch {
   md = await (await fetch(RAW_URL)).text();
